@@ -14,9 +14,9 @@ with
         from {{ ref("stg_order_details") }}
     )
 
-    select
-        customers.sk_customer
-        , orders.*
-    from orders
-    left join customers on orders.customer_id = customers.customer_id
-    left join order_details on orders.order_id = order_details.order_id
+select
+    customers.sk_customer
+    , orders.*
+from orders
+left join customers on orders.customer_id = customers.customer_id
+left join orders_details on orders.order_id = orders_details.order_id

@@ -7,6 +7,14 @@ sources:
     schema: erp_northwind  
     tables:
       - name: orders
+        freshness:
+          warn_after:
+            count: 365
+            period: day
+          error_after:
+            count: 10223
+            period: day
+        loaded_at_field: cast(order_date as timestamp)
         description: '{{ doc("order_docs") }}'
         columns:
           - name: order_id
