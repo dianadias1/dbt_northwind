@@ -2,9 +2,27 @@ version: 2
 
 sources:
   - name: northwind
+    description: Data from northwind ERP 
     database: curso-etl-101  
     schema: erp_northwind  
     tables:
       - name: orders
+        description: '{{ doc("order_docs") }}'
+        columns:
+          - name: order_id
+            description: Unique ID for this table
+            tests:
+              - unique
+              - not_null
+          - name: customer_id
+            tests:
+              - relationships:
+                  to: ref('stg_customers')
+                  field: customer_id
       - name: customers
-      - name: order_details 
+        description: This table list the customers from ERP Nortwind
+        columns:
+          - name: customer_id
+            description: Unique ID for this table
+      - name: order_details
+        description: Não colocarei descrição
