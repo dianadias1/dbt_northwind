@@ -34,3 +34,13 @@ sources:
             description: Unique ID for this table
       - name: order_details
         description: Não colocarei descrição
+      - name: products
+        description: This table list the customers from ERP Nortwind
+        columns:
+          - name: products_id
+            description: Unique ID for this table
+      - name: suppliers
+        description: This table list the customers from ERP Nortwind
+        columns:
+          - name: supplier_id
+            description: Unique ID for this table
